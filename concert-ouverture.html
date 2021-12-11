@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" x-data="{ menuIsOpen: false }" :class="menuIsOpen && 'noscroll'">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +7,14 @@
     <meta name="description" content="Site du Conservatoire de Belfort">
 
     <title>Conservatoire Henri Dutilleux — Concert d'ouverture</title>
-    <!-- Déclaration de la feuille de style -->
+    
     <link rel="stylesheet" href="src/css/style.css">
+    <script defer="" src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
   </head>
-
-  <body>
-
-    <!-- En-tête de la page -->
-    <header class="header">
+  <body x-data="{ atTop: true }">
+    <header class="header" 
+            @scroll.window="atTop = ( window.scrollY > 100 ? false : true )"
+            :class="{ 'header--atTop' : !atTop }">
 
       <div class="header__start">
         <a href="/">
@@ -22,19 +22,33 @@
         </a>
       </div>
 
-      <div class="header__end">
-
-        <button class="header__search">
+      <div class="header__end" x-data="{ searchIsOpen: false }">
+        <button class="header__search" @pointerdown="searchIsOpen = true">
           <img src="assets/icones/icon_search.svg" alt="icone de recherche">
         </button>
 
-        <button class="header__menu-btn menu-btn">
+        <div class="search-form" :class="searchIsOpen && 'search-form--open'">
+          <button class="search-form__close" @pointerdown="searchIsOpen = false">
+            <img src="assets/icones/icon_cross.svg" alt="icone croix">
+          </button>
+
+          <form class="search-form__form" action="#">
+            <label class="sr-only" for="search-form">Rechercher</label>
+            <input class="search-form__input" type="search" id="search-form" placeholder="Recherche…" value="">
+            <button class="search-form__submit">
+              <img src="assets/icones/icon_search.svg" alt="icone loupe">
+            </button>
+          </form>
+
+        </div>
+
+        <button class="header__menu-btn menu-btn" aria-label="menu" aria-expanded="false" aria-controls="mainNav"
+                @pointerdown="menuIsOpen = !menuIsOpen" 
+                :class="menuIsOpen && 'menu-btn--open'">
           <span class="menu-btn__bar"></span>
         </button>
-
-        <!-- Menu principal -->
-        <nav class="header__menu menu">
-          <ul class="menu__list">
+        <nav class="header__menu menu" id="mainNav" :class="menuIsOpen && 'menu--open'">
+          <ul class="menu__list list-unstyled">
             <li class="menu__item"><a class="menu__link" href="conservatoire.html">Le conservatoire</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Enseignements</a></li>
             <li class="menu__item"><a class="menu__link" href="agenda.html">Agenda</a></li>
@@ -42,12 +56,10 @@
             <li class="menu__item menu__item--btn"><a class="menu__link" href="inscription.html">S'inscrire</a></li>
           </ul>
         </nav>
-        <!-- Fin du menu principal -->
       </div>
+        
     </header>
-    <!-- Fin de l'en-tête de page -->
 
-    <!-- Contenu principal de la page -->
     <main>
       <div class="duotone"><img src="assets/img/img-article.webp" alt="crd"></div>
 
@@ -69,8 +81,8 @@
         </ul>
       </header>
 
-
       <div class="container">
+
         <p>Dans le cadre du Festival du film et forum international sur les droits humains (FIFDH) et en écho à Die Entführung aus dem Serail, Payot Genève organise une rencontre exceptionnelle avec l’écrivain et journaliste turque dissidente Aslı Erdoğan.</p>
         <p>Dans le cadre du Festival du film et forum international sur les droits humains (FIFDH) et en écho à Die Entführung aus dem Serail, Payot Genève organise une rencontre exceptionnelle avec l’écrivain et journaliste turque dissidente Aslı Erdoğan.</p>
         <p>Physicienne de formation, et à ce titre familière de Genève pour avoir travaillé au CERN, Aslı Erdoğan a milité pour la défense de ses pairs – à travers le « Comité des écrivains emprisonnés » du Pen Club International – de la minorité kurde (tout en se distanciant clairement des violences du PKK). Active dans la dénonciation des exactions du régime actuellement en place, elle est arrêtée en août 2016 à la suite de ce qu’Ankara considère comme un coup d’État manqué, et n’a dû finalement sa libération qu’à la pression internationale en sa faveur. À travers ses livres, dont Le silence même n’est plus à toi et Le bâtiment de pierre, elle analyse aussi bien les raisons politiques que sociales ou culturelles qui expliquent la lente mais opiniâtre dérive de la Turquie actuelle.</p>
@@ -85,8 +97,8 @@
         </div>
         <p>Physicienne de formation, et à ce titre familière de Genève pour avoir travaillé au CERN, Aslı Erdoğan a milité pour la défense de ses pairs – à travers le « Comité des écrivains emprisonnés » du Pen Club International – de la minorité kurde (tout en se distanciant clairement des violences du PKK). Active dans la dénonciation des exactions du régime actuellement en place, elle est arrêtée en août 2016 à la suite de ce qu’Ankara considère comme un coup d’État manqué, et n’a dû finalement sa libération qu’à la pression internationale en sa faveur. À travers ses livres, dont Le silence même n’est plus à toi et Le bâtiment de pierre, elle analyse aussi bien les raisons politiques que sociales ou culturelles qui expliquent la lente mais opiniâtre dérive de la Turquie actuelle.</p>
         <p>La discussion avec Aslı Erdoğan sera animée par Isabelle Gattiker, directrice générale du FIFDH, et suivie d’une séance de signature.</p>
-      </div>
       
+      </div>
 
       <aside class="container">
         <header>
@@ -123,12 +135,9 @@
           </div>
         </article>
 
-
       </aside>
     </main>
-    <!-- Fin du contenu principal -->
 
-    <!-- Pied de page -->
     <footer class="footer">
 
       <img class="footer__logo" src="assets/icones/icon_logoFooter.svg" alt="Logo du Conservatoire de Belfort">
@@ -163,7 +172,6 @@
       <img class="footer__gb" src="assets/icones/logo-grand-belfort.svg" alt="Logo du Grand Belfort">
   
     </footer>
-    <!-- Fin du pied de page -->
 
   </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" x-data="{ menuIsOpen: false }" :class="menuIsOpen && 'noscroll'">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +9,16 @@
     <title>Conservatoire Henri Dutilleux</title>
     <!-- Déclaration de la feuille de style -->
     <link rel="stylesheet" href="src/css/style.css">
+    <!-- Chargement de la librairie Alpine JS -->
+    <script defer="" src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
   </head>
 
-  <body>
+  <body x-data="{ atTop: true }">
 
     <!-- En-tête de la page -->
-    <header class="header">
+    <header class="header container" 
+            @scroll.window="atTop = ( window.scrollY > 100 ? false : true )"
+            :class="{ 'header--atTop' : !atTop }">
 
       <div class="header__start">
         <a href="/">
@@ -22,19 +26,38 @@
         </a>
       </div>
 
-      <div class="header__end">
+      <div class="header__end" x-data="{ searchIsOpen: false }">
 
-        <button class="header__search">
+        <button class="header__search" @pointerdown="searchIsOpen = true">
           <img src="assets/icones/icon_search.svg" alt="icone de recherche">
         </button>
 
-        <button class="header__menu-btn menu-btn">
+        <!-- Formulaire de recherche -->
+        <div class="search-form" :class="searchIsOpen && 'search-form--open'">
+          <button class="search-form__close" @pointerdown="searchIsOpen = false">
+            <img src="assets/icones/icon_cross.svg" alt="icone croix">
+          </button>
+
+          <form class="search-form__form" action="#">
+            <label class="sr-only" for="search-form">Rechercher</label>
+            <input class="search-form__input" type="search" id="search-form" placeholder="Recherche…" value="">
+            <button class="search-form__submit">
+              <img src="assets/icones/icon_search.svg" alt="icone loupe">
+            </button>
+          </form>
+
+        </div>
+        <!-- Fin du formulaire de recherche -->
+        
+        <button class="header__menu-btn menu-btn" aria-label="menu" aria-expanded="false" aria-controls="mainNav"
+                @pointerdown="menuIsOpen = !menuIsOpen" 
+                :class="menuIsOpen && 'menu-btn--open'">
           <span class="menu-btn__bar"></span>
         </button>
 
         <!-- Menu principal -->
-        <nav class="header__menu menu">
-          <ul class="menu__list">
+        <nav class="header__menu menu" id="mainNav" :class="menuIsOpen && 'menu--open'">
+          <ul class="menu__list list-unstyled">
             <li class="menu__item"><a class="menu__link" href="conservatoire.html">Le conservatoire</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Enseignements</a></li>
             <li class="menu__item"><a class="menu__link" href="agenda.html">Agenda</a></li>
@@ -43,7 +66,9 @@
           </ul>
         </nav>
         <!-- Fin du menu principal -->
+
       </div>
+        
     </header>
     <!-- Fin de l'en-tête de page -->
 
@@ -71,7 +96,7 @@
         </div>
         
       </div>
-            
+      
       <section class="presentation container">
         
         <img src="assets/img/crd-int-01.webp" alt="Salle de musique du conservatoire">
@@ -144,7 +169,6 @@
             <a class="card__link morelink" href="concert-ouverture.html">Plus d'info</a>
           </div>
         </article>
-
 
       </section>
 

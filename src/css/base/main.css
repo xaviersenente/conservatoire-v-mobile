@@ -55,3 +55,24 @@ button {
   padding-left: var(--space3x);
   padding-right: var(--space3x);
 }
+
+/* Bug IOS
+=> L'overflow doit être appliqué sur l'élément body ET html
+pour faire disparaître le scroll sur safari IOS */
+.noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+
+/* Technique reprise de Bootsrap pour rendre le contenu 
+uniquement accessible aux lecteurs vocaux (sr = screen reader) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
