@@ -29,6 +29,7 @@ Soyez attentifs à l'ordre d'import :
 @import "layout/footer.css";
 @import "layout/section.css";
 @import "layout/section-presentation.css";
+@import "layout/forms.css";
 
 /* Components */
 @import "components/menu.css";

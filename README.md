@@ -1,5 +1,4 @@
-# Etape 9 : Cards (BEM)
+# Étape 10 : form (BEM) + btn (dark & download)
 
-1. Ajouter les classes pour faire les cards dans les pages `index.html`, `agenda.html` et `concert-ouverture.html` en utilisant la méthodologie BEM.
-2. Ajouter le css dans `cards.css`. Importez-le depuis `style.css`.
-2. Ajouter le css dans `buttons.css` pour faire l'apparence des liens "en savoir plus".
+1. Ajouter le css dans `forms.css`. Importez-le depuis `style.css`.
+2. Complétez le code css dans `buttons.css` pour faire la version "dark" du bouton et les liens de téléchargement.

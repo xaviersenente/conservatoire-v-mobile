@@ -85,50 +85,50 @@
           <li>A partir de 15 ans et en fonction de la pratique théâtrale antérieure : 1 cours de 3h par semaine.</li>
         </ul>
   
-        <a href="#">
+        <a class="download" href="#">
           Livret d’information du conservatoire
-          <img src="assets/icones/icon_download.svg" alt="Icone download">
+          <img class="download__icon" src="assets/icones/icon_download.svg" alt="Icone download">
         </a>
-        <a href="#">
+        <a class="download" href="#">
           Demande de location d’instrument
-          <img src="assets/icones/icon_download.svg" alt="Icone download">
+          <img class="download__icon" src="assets/icones/icon_download.svg" alt="Icone download">
         </a>
       </div>
       
-      <form class="container" action="#">
-        <h2>Pré-inscription</h2>
-        <p>Pré-inscriptions au Conservatoire à Rayonnement Départemental de Belfort pour l'année scolaire 2020-2021</p>
-        <p>
+      <form class="form container" action="#">
+        <h2 class="form__title">Pré-inscription</h2>
+        <p class="form__intro">Pré-inscriptions au Conservatoire à Rayonnement Départemental de Belfort pour l'année scolaire 2020-2021</p>
+        <p class="form__input">
           <label for="firstname">Prénom<br>
             <input type="text" id="firstname" name="first-name" value="">
           </label>
         </p>
-        <p>
+        <p class="form__input">
           <label for="lastname">Nom<br>
             <input type="text" id="lastname" name="last-name" value="">
           </label>
         </p>
-        <p>
-          <label for="email">Email<br>
+        <p class="form__input">
+          <label for="firstname">Email<br>
             <input type="email" id="email" name="email" value="">
           </label>
         </p>
-        <p>
+        <p class="form__input">
           <label for="birthday">Date de naissance<br>
             <input type="date" id="birthday" name="birthday" value="">
           </label>
         </p>
-        <p>
+        <p class="form__input">
           <label for="address">Adresse<br>
             <input type="text" id="address" name="address" value="">
           </label>
         </p>
-        <p>
+        <p class="form__input">
           <label for="school">Établissement scolaire et classe à la rentrée<br>
             <input type="text" id="school" name="school" value="">
           </label>
         </p>
-        <p>
+        <p class="form__select">
           <label for="activity">Activité souhaitée<br>
             <select id="activity" name="activity">
               <option value="">---</option>
@@ -139,7 +139,7 @@
           </label>
         </p>
         <p>
-          <button type="submit">Se pré-inscrire</button>
+          <button class="btn btn--dark" type="submit">Se pré-inscrire</button>
         </p>
       </form>
     </main>
