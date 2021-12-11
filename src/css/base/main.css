@@ -49,3 +49,9 @@ button {
   padding: 0;
   margin: 0;
 }
+
+/* Classe générique permettant de définir les marges sur les cotés */
+.container {
+  padding-left: var(--space3x);
+  padding-right: var(--space3x);
+}
