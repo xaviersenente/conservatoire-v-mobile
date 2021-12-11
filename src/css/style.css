@@ -35,4 +35,5 @@ Soyez attentifs à l'ordre d'import :
 @import "components/hero.css";
 @import "components/infos.css";
 @import "components/button.css";
+@import "components/card.css";
 

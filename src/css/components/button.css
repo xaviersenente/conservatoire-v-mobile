@@ -31,3 +31,23 @@
 .btn--outlined img {
   filter: invert();
 }
+
+/* Mise en forme du lien "en savoir plus" */
+.morelink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--gray-black);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space1x);
+}
+
+.morelink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray-black);
+}
