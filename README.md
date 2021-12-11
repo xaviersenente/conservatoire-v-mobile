@@ -1,4 +1,4 @@
-# Étape 10 : form (BEM) + btn (dark & download)
+# Étape 11 : Carousel simple uniquement en CSS
 
-1. Ajouter le css dans `forms.css`. Importez-le depuis `style.css`.
-2. Complétez le code css dans `buttons.css` pour faire la version "dark" du bouton et les liens de téléchargement.
+1. Ajoutez les classes sur le carousel en utilisant BEM.
+2. Ajouter le css dans `carousel.css`. Importez-le depuis `style.css`.
