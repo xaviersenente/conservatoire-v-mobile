@@ -27,9 +27,12 @@ Soyez attentifs à l'ordre d'import :
 /* Layout */
 @import "layout/header.css";
 @import "layout/footer.css";
+@import "layout/section.css";
+@import "layout/section-presentation.css";
 
 /* Components */
 @import "components/menu.css";
 @import "components/hero.css";
 @import "components/infos.css";
+@import "components/button.css";
 
