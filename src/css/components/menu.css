@@ -1,24 +1,20 @@
 /* Pour construire le menu en mobile : 
 On construit le menu tel qu'il sera une fois ouvert.
-On ajoute les propriétés "visibility: hidden" et "opacity: 0" pour masquer le menu. */
+On se sert d'Alpine.JS pour rendre visible le menu lorsqu'on clique sur le bouton x-show="menuIsOpen"  */
 .menu {
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   overflow: hidden;
   position: fixed;
   display: flex;
   position: fixed;
-  top: 0; bottom: 0;
-  left: 0; right : 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: var(--brand-violet);
   font-size: var(--text-xl);
   letter-spacing: var(--letter-spacing);
-  transition: all .4s ease-in-out;
-}
-/* On se sert de Javascript pour ajouter une classe sur le menu lorsqu'on clique sur le bouton de menu pour le faire apparaître */
-.menu--open {
-  visibility: visible;
-  opacity: 1;
 }
 
 /* Mise en forme des éléments du menu */
@@ -41,7 +37,7 @@ On ajoute les propriétés "visibility: hidden" et "opacity: 0" pour masquer le 
 .menu-btn {
   position: relative;
   z-index: 3;
-  width: 30px;  
+  width: 30px;
 }
 
 .menu-btn__bar,

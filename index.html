@@ -56,7 +56,12 @@
         </button>
 
         <!-- Menu principal -->
-        <nav class="header__menu menu" id="mainNav" :class="menuIsOpen && 'menu--open'">
+        <nav
+          class="header__menu menu"
+          id="mainNav"
+          x-show="menuIsOpen"
+          x-transition.opacity.duration.400ms
+        >
           <ul class="menu__list list-unstyled">
             <li class="menu__item"><a class="menu__link" href="conservatoire.html">Le conservatoire</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Enseignements</a></li>
